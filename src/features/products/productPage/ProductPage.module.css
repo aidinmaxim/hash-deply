@@ -1,0 +1,17 @@
+.productList {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: gray;
+    list-style-type: none;
+    margin: 0;
+}
+
+.productCard {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 15px;
+    align-items: center;
+}
