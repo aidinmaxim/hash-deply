@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <BrowserRouter>
       <Routes>
         {/* <Route path='/' element={<Layout />}> */}
-        <Route path='my-react-deploy/' element={<Layout />}>
+        <Route path='hash-deply/' element={<Layout />}>
           <Route index element={<h1>Home page</h1>} />
           <Route path='products/' element={<ProductPage />} />
           <Route path='city-toggle/' element={<CityToggle />} />

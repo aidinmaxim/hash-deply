@@ -5,7 +5,7 @@ import react from "@vitejs/plugin-react"
 export default defineConfig({
   plugins: [react()],
   // указываем значение base как “/{repo-name}/” имя вашего репозиторияк
-  base: "/my-react-deploy/",
+  base: "/hash-deply/",
   server: {
     open: true,
   },
