@@ -2,16 +2,27 @@ import { createSlice } from '@reduxjs/toolkit';
 import ProductState from './types/ProductState';
 import { addProduct, deleteProduct, loadProducts } from './productAction';
 
-const initial: ProductState = {
+const initialState: ProductState = {
   products: [],
   isLoading: false,
-  error: null
+  error: null,
+  favorites: [],
 }
 
 export const productSlice = createSlice({
   name: 'products',
-  initialState: initial,
-  reducers: {},
+  initialState,
+  reducers: {
+    toggleFavorites: (state, action) => {
+      const id = action.payload
+      const index = state.favorites.indexOf(id)
+      if (index == -1) {
+        state.favorites.push(id)
+      } else {
+        state.favorites.splice(index, 1)
+      }
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(loadProducts.pending, (state) => {
@@ -34,3 +45,5 @@ export const productSlice = createSlice({
       })
   }
 })
+
+export const { toggleFavorites } = productSlice.actions

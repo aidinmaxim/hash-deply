@@ -4,15 +4,16 @@ import styles from './Header.module.css'
 import { useAppSelector } from '../../app/hooks'
 
 const Header: FC = () => {
-  const { products } = useAppSelector(state => state.products)
+  const { products, favorites } = useAppSelector(state => state.products)
   return (
     <div className={styles.header}>
       <div className={styles.navbar}>
-        <NavLink to='/React-RTK-router'>Product page</NavLink>
+        <NavLink to='/'>Product page</NavLink>
         <NavLink to='products'>Products</NavLink>
         <NavLink to='city-toggle'>Change city</NavLink>
         <NavLink to='sandwich'>Make a sandwich</NavLink>
-        <span>Сейчас в магазине <span style={{ color: 'lightgrey' }}>{products.length}</span> товаров</span>
+        <span>Сейчас в магазине <span style={{color: 'lightgrey'}}>{products.length}</span> товаров</span>
+        <span>Любимых:  <span style={{color: 'white'}}>{favorites.length}</span> товаров</span>
       </div>
     </div>
   )
