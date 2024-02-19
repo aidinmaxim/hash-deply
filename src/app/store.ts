@@ -2,6 +2,7 @@ import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit"
 import counterReducer from "../features/counter/counterSlice"
 import { productSlice } from '../features/products/productSlice'
 import {itemsSlice} from "../features/shopFeature/ShopSlice";
+import authSlice from "../features/auth/authSlice";
 
 
 // * в store хранятся данные из всего react приложения
@@ -11,7 +12,8 @@ export const store = configureStore({
   reducer: {
     counter: counterReducer,
     products: productSlice.reducer,
-    shops: itemsSlice.reducer
+    shops: itemsSlice.reducer,
+    user: authSlice.reducer,
   },
 })
 
