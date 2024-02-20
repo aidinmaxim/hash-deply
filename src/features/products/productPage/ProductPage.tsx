@@ -36,7 +36,7 @@ const ProductPage: FC = () => {
             {!isLoading && (
                 <ul className={styles.productList}>
                     {products.map(el => (
-                        <ProductCard key={el.id} id={el.id} title={el.title} image={el.image} price={el.price}/>
+                        <ProductCard key={el.id} id={el.id} title={el.title} images={[el.image]} price={el.price}/>
                     ))}
                 </ul>
             )}

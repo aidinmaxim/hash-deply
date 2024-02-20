@@ -8,6 +8,9 @@
 .imgWrapper {
     height: 380px;
     width: 280px;
+    display: flex;
+    con
+    justify-content: center;
 }
 
 .imgWrapper>img {

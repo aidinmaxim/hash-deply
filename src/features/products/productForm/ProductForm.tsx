@@ -19,7 +19,7 @@ const ProductForm: FC = () => {
 
   const [error, setError] = useState('');
 
-  const [product, setProduct] = useLocalStorage<IProduct>('product',{
+  const [product, setProduct] = useLocalStorage<IProduct>('product', {
     title: '',
     description: '',
     category: '',

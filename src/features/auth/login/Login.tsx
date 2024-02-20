@@ -1,14 +1,15 @@
 import React, {FC, useState} from 'react';
-import {useAppDispatch} from "../../../app/hooks";
+import {useAppDispatch, useAppSelector} from "../../../app/hooks";
 import {loginAction} from "../authAction";
 import ICredentials from "../types/Credentials";
 import useLocalStorage from "../../../hooks/useLS";
-import {useNavigate} from "react-router-dom";
+import {Navigate, useNavigate} from "react-router-dom";
 //import styles from './Login.module.css'
 
 const Login: FC = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+    const {user} = useAppSelector(state => state.user)
     // const [username, setUsername] = useLocalStorage('username', '')
     // const [password, setPassword] = useLocalStorage('password', '')
     const [username, setUsername] = useLocalStorage('username', '')
@@ -22,6 +23,10 @@ const Login: FC = () => {
         }
         dispatch(loginAction(credentials))
         navigate('/')
+    }
+
+    if (user) {
+        return <Navigate to='../'/>
     }
 
     return (

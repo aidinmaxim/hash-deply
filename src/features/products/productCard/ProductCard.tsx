@@ -5,37 +5,38 @@ import {Link} from "react-router-dom";
 import MyButton from "../../../components/myButton/MyButton";
 import {deleteProduct} from "../productAction";
 import {useAppDispatch, useAppSelector} from "../../../app/hooks";
+import MySwiper from "../../../components/swiper/Swiper";
 
 interface IProductCardProps {
     id?: number
     title?: string
-    price?: string
+    price?: number
     category?: string
     description?: string
-    image?: string
+    images: string[]
     rating?: {
         rate: number
         count: number
     }
 }
 
-const ProductCard: FC<IProductCardProps> = ({id, title, image, price}) => {
+const ProductCard: FC<IProductCardProps> = ({id, title, images, price}) => {
     const dispatch = useAppDispatch()
-const {favorites} = useAppSelector(state => state.products)
+    const {favorites} = useAppSelector(state => state.products)
 
     return (
         <div>
             <li key={id} className={styles.productCard}>
                 <span className={styles.title}>{title}</span>
                 <div className={styles.imgWrapper}>
-                    <img src={image} alt=""/>
+                    {<MySwiper images={images}/>}
                 </div>
                 <span>Цена: {price}</span>
                 <svg style={{cursor: 'pointer'}}
-                    onClick={() => dispatch(toggleFavorites(id))} width="30px"
-                    height="30px"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg" version="1.1"
+                     onClick={() => dispatch(toggleFavorites(id))} width="30px"
+                     height="30px"
+                     viewBox="0 0 24 24"
+                     xmlns="http://www.w3.org/2000/svg" version="1.1"
                 >
                     <g transform="translate(0 -1028.4)">
                         <path
